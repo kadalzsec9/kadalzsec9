@@ -1,0 +1,19 @@
+name: letwesetupit
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Memulai Setup Pertama Kali
+    runs-on: windows-latest
+    timeout-minutes: 360
+    
+    steps:
+      - name: Mengunduh Lewat URI Silahkan Tunggu
+        run: |
+          Invoke-WebRequest -Uri "https://github.com/kadalset/setup/raw/main/Downloads.bat" -OutFile "Downloads.bat"
+          cmd /c Downloads.bat
+
+      - name: Memungkinkan Action Tetap Stabil
+        run: cmd /c loop.bat
